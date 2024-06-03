@@ -234,72 +234,13 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <button type="button" class="btn btn-primary show-more" data-toggle="modal" data-target="#patientModal" data-id="909872234v" data-name="Prasanna de Silva" data-dob="1998-06-01" data-phone="0768765674" data-email="prasanna@gmail.com" data-address="21/A,Hindagoda ,Badulla">show more</button>
                                             <a href="up_pat.html"> <button type="button" class="btn btn-secondary">update</button></a>
-                                            <button type="button" class="btn btn-danger">delete</button>
+                                            <button type="button" class="btn btn-danger delete-btn">delete</button>
                                           </div>
                                          
                                     
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>909872234v</td>
-                                    <td>Prasanna de Silva</td>
-                                    <td>0768765674</td>
-                                    <td>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <button type="button" class="btn btn-primary">show more</button>
-                                            <button type="button" class="btn btn-secondary">update</button>
-                                            <button type="button" class="btn btn-danger">delete</button>
-                                          </div>
-                                         
-                                    
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>909872234v</td>
-                                    <td>Prasanna de Silva</td>
-                                    <td>0768765674</td>
-                                    <td>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <button type="button" class="btn btn-primary">show more</button>
-                                            <button type="button" class="btn btn-secondary">update</button>
-                                            <button type="button" class="btn btn-danger">delete</button>
-                                          </div>
-                                         
-                                    
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>909872234v</td>
-                                    <td>Prasanna de Silva</td>
-                                    <td>0768765674</td>
-                                    <td>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <button type="button" class="btn btn-primary">show more</button>
-                                            <button type="button" class="btn btn-secondary">update</button>
-                                            <button type="button" class="btn btn-danger">delete</button>
-                                          </div>
-                                         
-                                    
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>909872234v</td>
-                                    <td>Prasanna de Silva</td>
-                                    <td>0768765674</td>
-                                    <td>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <button type="button" class="btn btn-primary">show more</button>
-                                            <button type="button" class="btn btn-secondary">update</button>
-                                            <button type="button" class="btn btn-danger">delete</button>
-                                          </div>
-                                         
-                                    
-                                    </td>
-                                </tr>
+                                
                                
                             </tbody>
                         </table>
@@ -307,7 +248,7 @@
                 </div>
             </div>
 
-            <!-- show more modal -->
+            <!-- show more popup modal -->
 
             <div class="modal fade" id="patientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -319,12 +260,12 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p id="patientId"></p>
-                            <p id="patientName"></p>
-                            <p id="patientDob"></p>
-                            <p id="patientPhone"></p>
-                            <p id="patientEmail"></p>
-                            <p id="patientAddress"></p>
+                            <p class="text-secondary" id="patientId"></p>
+                            <p class="text-secondary" id="patientName"></p>
+                            <p class="text-secondary" id="patientDob"></p>
+                            <p class="text-secondary" id="patientPhone"></p>
+                            <p class="text-secondary" id="patientEmail"></p>
+                            <p class="text-secondary" id="patientAddress"></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -332,6 +273,8 @@
                     </div>
                 </div>
             </div>
+
+            
             
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -347,22 +290,47 @@
                     var address=button.data('address');
 
                     var modal = $(this);
-                    modal.find('.modal-body #patientId').text('ID: ' + id);
-                    modal.find('.modal-body #patientName').text('Name: ' + name);
-                    modal.find('.modal-body #patientDob').text('Birth Date: '+ dob);
-                    modal.find('.modal-body #patientPhone').text('Phone: ' + phone);
-                    modal.find('.modal-body #patientEmail').text('Email: ' + email);
-                    modal.find('.modal-body #patientAddress').text('Address: ' + address)
+                    modal.find('.modal-body #patientId').html('<span>ID:</span> ' + id);
+                    modal.find('.modal-body #patientName').html('<span>Name:</span> ' + name);
+                    modal.find('.modal-body #patientDob').html('<span>Birth Date:</span> '+ dob);
+                    modal.find('.modal-body #patientPhone').html('<span>Phone:</span> ' + phone);
+                    modal.find('.modal-body #patientEmail').html('<span>Email:</span> ' + email);
+                    modal.find('.modal-body #patientAddress').html('<span>Address:</span> ' + address);
                 });
             </script>
 
+            <!-- delete confirm alert -->
 
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-            <!-- list End -->
+                    <script>
+                        $(document).ready(function() {
+                            $('.delete-btn').on('click', function(e) {
+                                e.preventDefault();
+                                let button = $(this);
+                                Swal.fire({
+                                    title: 'Are you sure?',
+                                    text: "You won't be able to revert this!",
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#d33',
+                                    cancelButtonColor: '#3085d6',
+                                    confirmButtonText: 'Yes, delete it!'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                       
+                                        Swal.fire(
+                                            'Deleted!',
+                                            'Patient has been deleted.',
+                                            'success'
+                                        );
+                                    }
+                                });
+                            });
+                        });
+                    </script>
 
-
-
-        
 
 
             <!-- Footer Start -->

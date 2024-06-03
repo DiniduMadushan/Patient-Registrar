@@ -131,7 +131,7 @@
                         </div>
                         <div class="button-container">
                             <button type="button" class="btn btn-primary m-2 update-btn">Update</button>
-                            <button type="button" class="btn btn-secondary m-2 cancel-btn">Cancel</button>
+                            <a href="index.html"><button type="button" class="btn btn-secondary m-2 cancel-btn">Cancel</button></a>
                         </div>
                         
                       </form>
@@ -139,7 +139,39 @@
                   </div>
                 </div>
               </div>
-              <!-- Patient registration form end -->
+              <!-- Patient update form end -->
+
+              <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+              <script>
+                $(document).ready(function() {
+                $('.update-btn').on('click', function(e) {
+                  e.preventDefault();
+                    Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Do you want to update the patient information?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, update it!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire({
+                            title: 'Updated!',
+                            text: 'Patient has been updated.',
+                            icon: 'success'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = 'index.html';
+                            }
+                        });
+                      }
+                    });
+                  });
+              });
+              </script>
 
 
             <!-- Footer Start -->

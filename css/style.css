@@ -245,3 +245,14 @@
     gap: 10px;
     justify-content: center;
   }
+
+  /* moreinfo popup */
+
+  .modal-body p {
+    margin-bottom: 10px;
+ }
+.modal-body span {
+    display: inline-block;
+    min-width: 100px; 
+    color: #007bff;
+}
