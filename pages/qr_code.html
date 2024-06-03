@@ -95,22 +95,41 @@
                                 </div>
                                 <div style="text-align: left;">
                                     <h3 style="font-size: 20px;">Base hospital - Kolonna</h3>
-                                    <p>Name : Joss Butler</p>
-                                    <p>NIC  : 97234567v</p>
+                                    <p>Name : Sunil perera</p>
+                                    <p>NIC  : 922341123v</p>
                                     <p>Phone: 0703451234</p>
-                                    <p>Email: josbuttler@gmail.com</p>
+                                    <p>Email: sunilperera@gmail.com</p>
                                 </div>
                               
                             </div>
                     
                             <div class="print-btn">
-                                <button>Print</button>
+                                <button id="printButton">Print</button>
                             </div>
                     
                           </div>
                     </div>
                 </div>
             </div>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+            <script>
+                
+                document.getElementById('printButton').addEventListener('click', function() {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'QR code data sent successfully. Check the printer.',
+                        icon: 'success'
+                    }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = 'index.html';
+                            }
+                        });
+                });
+
+            </script>
 
 
 

@@ -150,23 +150,15 @@
                   e.preventDefault();
                     Swal.fire({
                     title: 'Are you sure?',
-                    text: "Do you want to add the patient information?",
+                    text: "Do you want to register the patient?",
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes,add it!'
+                    confirmButtonText: 'Yes, register!'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                      Swal.fire({
-                            title: 'added!',
-                            text: 'Patient has been added.',
-                            icon: 'success'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = 'index.html';
-                            }
-                        });
+                      window.location.href = 'qr_code.html';
                       }
                     });
                   });
