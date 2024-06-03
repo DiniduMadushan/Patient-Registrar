@@ -205,6 +205,8 @@
     
 })(jQuery);
 
+//qr code generator
+
 document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.querySelector(".wrapper");
     const qrInput = wrapper.querySelector(".form input");
@@ -238,5 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 

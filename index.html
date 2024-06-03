@@ -232,8 +232,8 @@
                                     <td>0768765674</td>
                                     <td>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <button type="button" class="btn btn-primary">show more</button>
-                                            <button type="button" class="btn btn-secondary">update</button>
+                                            <button type="button" class="btn btn-primary show-more" data-toggle="modal" data-target="#patientModal" data-id="909872234v" data-name="Prasanna de Silva" data-dob="1998-06-01" data-phone="0768765674" data-email="prasanna@gmail.com" data-address="21/A,Hindagoda ,Badulla">show more</button>
+                                            <a href="up_pat.html"> <button type="button" class="btn btn-secondary">update</button></a>
                                             <button type="button" class="btn btn-danger">delete</button>
                                           </div>
                                          
@@ -241,7 +241,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>1</td>
+                                    <td>2</td>
                                     <td>909872234v</td>
                                     <td>Prasanna de Silva</td>
                                     <td>0768765674</td>
@@ -256,7 +256,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>1</td>
+                                    <td>3</td>
                                     <td>909872234v</td>
                                     <td>Prasanna de Silva</td>
                                     <td>0768765674</td>
@@ -271,7 +271,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>1</td>
+                                    <td>4</td>
                                     <td>909872234v</td>
                                     <td>Prasanna de Silva</td>
                                     <td>0768765674</td>
@@ -286,7 +286,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>1</td>
+                                    <td>5</td>
                                     <td>909872234v</td>
                                     <td>Prasanna de Silva</td>
                                     <td>0768765674</td>
@@ -300,12 +300,66 @@
                                     
                                     </td>
                                 </tr>
+                               
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+            <!-- show more modal -->
+
+            <div class="modal fade" id="patientModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Patient Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="patientId"></p>
+                            <p id="patientName"></p>
+                            <p id="patientDob"></p>
+                            <p id="patientPhone"></p>
+                            <p id="patientEmail"></p>
+                            <p id="patientAddress"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            
+            <script>
+                $('#patientModal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget);
+                    var id = button.data('id'); 
+                    var name = button.data('name');
+                    var phone = button.data('phone');
+                    var dob=button.data('dob');
+                    var email=button.data('email');
+                    var address=button.data('address');
+
+                    var modal = $(this);
+                    modal.find('.modal-body #patientId').text('ID: ' + id);
+                    modal.find('.modal-body #patientName').text('Name: ' + name);
+                    modal.find('.modal-body #patientDob').text('Birth Date: '+ dob);
+                    modal.find('.modal-body #patientPhone').text('Phone: ' + phone);
+                    modal.find('.modal-body #patientEmail').text('Email: ' + email);
+                    modal.find('.modal-body #patientAddress').text('Address: ' + address)
+                });
+            </script>
+
+
+
             <!-- list End -->
+
 
 
         
@@ -333,7 +387,6 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
 

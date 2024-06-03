@@ -238,4 +238,10 @@
     background-color: #0056b3;
   }
 
-  /* Qr_code page */
+  /* update form */
+
+  .button-container{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
