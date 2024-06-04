@@ -28,6 +28,14 @@
     opacity: 1;
 }
 
+.navbar-brand h3{
+    color: #640d8f;
+    padding: 5px 40px;
+    border: 2px solid green;
+    border-radius: 10px;
+}
+
+
 
 /*** Button ***/
 .btn {
